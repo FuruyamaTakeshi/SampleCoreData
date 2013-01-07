@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A43F9F8F169AF053007F63F3 /* RCData.m in Sources */ = {isa = PBXBuildFile; fileRef = A43F9F8E169AF053007F63F3 /* RCData.m */; };
+		A43F9F93169AF082007F63F3 /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = A43F9F92169AF082007F63F3 /* Content.m */; };
+		A43F9F96169AF0BE007F63F3 /* RCDataStatusLog.m in Sources */ = {isa = PBXBuildFile; fileRef = A43F9F95169AF0BE007F63F3 /* RCDataStatusLog.m */; };
+		A43F9F99169AF0D8007F63F3 /* RCDataStatusEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = A43F9F98169AF0D8007F63F3 /* RCDataStatusEntry.m */; };
+		A43F9F9C169AF103007F63F3 /* RCDataStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = A43F9F9B169AF103007F63F3 /* RCDataStatus.m */; };
+		A4770B31168869B600C80827 /* RCEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = A4770B30168869B600C80827 /* RCEntry.m */; };
+		A4770B37168869B700C80827 /* RCLog.m in Sources */ = {isa = PBXBuildFile; fileRef = A4770B36168869B700C80827 /* RCLog.m */; };
+		A4770B3D168871DC00C80827 /* RCDataFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = A4770B3C168871DC00C80827 /* RCDataFormat.m */; };
+		A4770B4216887A1800C80827 /* RCDataFormatJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A4770B4116887A1800C80827 /* RCDataFormatJSON.m */; };
+		A4770B451688801E00C80827 /* RCDataFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A4770B441688801E00C80827 /* RCDataFactory.m */; };
+		A4770B481688819900C80827 /* RCDataFormatFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A4770B471688819900C80827 /* RCDataFormatFactory.m */; };
 		A4A1CE74167804C80016CD55 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A1CE73167804C80016CD55 /* UIKit.framework */; };
 		A4A1CE76167804C80016CD55 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A1CE75167804C80016CD55 /* Foundation.framework */; };
 		A4A1CE78167804C80016CD55 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A1CE77167804C80016CD55 /* CoreGraphics.framework */; };
@@ -23,6 +34,9 @@
 		A4A1CE9A167804C90016CD55 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A1CE75167804C80016CD55 /* Foundation.framework */; };
 		A4A1CEA2167804C90016CD55 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4A1CEA0167804C90016CD55 /* InfoPlist.strings */; };
 		A4A1CEA5167804C90016CD55 /* SampleCoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A1CEA4167804C90016CD55 /* SampleCoreDataTests.m */; };
+		A4A1CEB0167805310016CD55 /* Content.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4A1CEAE167805310016CD55 /* Content.xcdatamodeld */; };
+		A4A1CEB616780E460016CD55 /* ContentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A1CEB516780E460016CD55 /* ContentManager.m */; };
+		A4A1CEBB1678137B0016CD55 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A1CEBA1678137B0016CD55 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +50,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A43F9F8D169AF053007F63F3 /* RCData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCData.h; sourceTree = "<group>"; };
+		A43F9F8E169AF053007F63F3 /* RCData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCData.m; sourceTree = "<group>"; };
+		A43F9F91169AF082007F63F3 /* Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Content.h; path = Model/Content.h; sourceTree = "<group>"; };
+		A43F9F92169AF082007F63F3 /* Content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Content.m; path = Model/Content.m; sourceTree = "<group>"; };
+		A43F9F94169AF0BE007F63F3 /* RCDataStatusLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCDataStatusLog.h; path = Model/RCDataStatusLog.h; sourceTree = "<group>"; };
+		A43F9F95169AF0BE007F63F3 /* RCDataStatusLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCDataStatusLog.m; path = Model/RCDataStatusLog.m; sourceTree = "<group>"; };
+		A43F9F97169AF0D8007F63F3 /* RCDataStatusEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCDataStatusEntry.h; path = Model/RCDataStatusEntry.h; sourceTree = "<group>"; };
+		A43F9F98169AF0D8007F63F3 /* RCDataStatusEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCDataStatusEntry.m; path = Model/RCDataStatusEntry.m; sourceTree = "<group>"; };
+		A43F9F9A169AF103007F63F3 /* RCDataStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCDataStatus.h; path = Model/RCDataStatus.h; sourceTree = "<group>"; };
+		A43F9F9B169AF103007F63F3 /* RCDataStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCDataStatus.m; path = Model/RCDataStatus.m; sourceTree = "<group>"; };
+		A4770B2F168869B600C80827 /* RCEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCEntry.h; sourceTree = "<group>"; };
+		A4770B30168869B600C80827 /* RCEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCEntry.m; sourceTree = "<group>"; };
+		A4770B35168869B700C80827 /* RCLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCLog.h; sourceTree = "<group>"; };
+		A4770B36168869B700C80827 /* RCLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCLog.m; sourceTree = "<group>"; };
+		A4770B3B168871DC00C80827 /* RCDataFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDataFormat.h; sourceTree = "<group>"; };
+		A4770B3C168871DC00C80827 /* RCDataFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDataFormat.m; sourceTree = "<group>"; };
+		A4770B4016887A1800C80827 /* RCDataFormatJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCDataFormatJSON.h; path = Model/RCDataFormatJSON.h; sourceTree = "<group>"; };
+		A4770B4116887A1800C80827 /* RCDataFormatJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCDataFormatJSON.m; path = Model/RCDataFormatJSON.m; sourceTree = "<group>"; };
+		A4770B431688801E00C80827 /* RCDataFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCDataFactory.h; path = Model/RCDataFactory.h; sourceTree = "<group>"; };
+		A4770B441688801E00C80827 /* RCDataFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCDataFactory.m; path = Model/RCDataFactory.m; sourceTree = "<group>"; };
+		A4770B461688819900C80827 /* RCDataFormatFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCDataFormatFactory.h; path = Model/RCDataFormatFactory.h; sourceTree = "<group>"; };
+		A4770B471688819900C80827 /* RCDataFormatFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCDataFormatFactory.m; path = Model/RCDataFormatFactory.m; sourceTree = "<group>"; };
 		A4A1CE6F167804C80016CD55 /* SampleCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A1CE73167804C80016CD55 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A4A1CE75167804C80016CD55 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -58,6 +94,10 @@
 		A4A1CEA1167804C90016CD55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A4A1CEA3167804C90016CD55 /* SampleCoreDataTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleCoreDataTests.h; sourceTree = "<group>"; };
 		A4A1CEA4167804C90016CD55 /* SampleCoreDataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleCoreDataTests.m; sourceTree = "<group>"; };
+		A4A1CEAF167805310016CD55 /* Content.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Content.xcdatamodel; sourceTree = "<group>"; };
+		A4A1CEB416780E460016CD55 /* ContentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentManager.h; sourceTree = "<group>"; };
+		A4A1CEB516780E460016CD55 /* ContentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentManager.m; sourceTree = "<group>"; };
+		A4A1CEBA1678137B0016CD55 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4A1CEBB1678137B0016CD55 /* CoreData.framework in Frameworks */,
 				A4A1CE74167804C80016CD55 /* UIKit.framework in Frameworks */,
 				A4A1CE76167804C80016CD55 /* Foundation.framework in Frameworks */,
 				A4A1CE78167804C80016CD55 /* CoreGraphics.framework in Frameworks */,
@@ -84,6 +125,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A40FEB8716793EA9004A177C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A4A1CE8B167804C80016CD55 /* ViewController.h */,
+				A4A1CE8C167804C80016CD55 /* ViewController.m */,
+				A4A1CE8E167804C80016CD55 /* ViewController.xib */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A4770B3E1688797C00C80827 /* 001_RCLog */ = {
+			isa = PBXGroup;
+			children = (
+				A4770B461688819900C80827 /* RCDataFormatFactory.h */,
+				A4770B471688819900C80827 /* RCDataFormatFactory.m */,
+				A4770B3B168871DC00C80827 /* RCDataFormat.h */,
+				A4770B3C168871DC00C80827 /* RCDataFormat.m */,
+				A4770B4016887A1800C80827 /* RCDataFormatJSON.h */,
+				A4770B4116887A1800C80827 /* RCDataFormatJSON.m */,
+				A4770B35168869B700C80827 /* RCLog.h */,
+				A4770B36168869B700C80827 /* RCLog.m */,
+			);
+			name = 001_RCLog;
+			sourceTree = "<group>";
+		};
+		A4770B3F168879A600C80827 /* 000_RCEntryContent */ = {
+			isa = PBXGroup;
+			children = (
+				A4770B2F168869B600C80827 /* RCEntry.h */,
+				A4770B30168869B600C80827 /* RCEntry.m */,
+			);
+			name = 000_RCEntryContent;
+			sourceTree = "<group>";
+		};
 		A4A1CE64167804C80016CD55 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +181,7 @@
 		A4A1CE72167804C80016CD55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A4A1CEBA1678137B0016CD55 /* CoreData.framework */,
 				A4A1CE73167804C80016CD55 /* UIKit.framework */,
 				A4A1CE75167804C80016CD55 /* Foundation.framework */,
 				A4A1CE77167804C80016CD55 /* CoreGraphics.framework */,
@@ -119,9 +195,8 @@
 			children = (
 				A4A1CE82167804C80016CD55 /* AppDelegate.h */,
 				A4A1CE83167804C80016CD55 /* AppDelegate.m */,
-				A4A1CE8B167804C80016CD55 /* ViewController.h */,
-				A4A1CE8C167804C80016CD55 /* ViewController.m */,
-				A4A1CE8E167804C80016CD55 /* ViewController.xib */,
+				A4A1CEC0167878170016CD55 /* Models */,
+				A40FEB8716793EA9004A177C /* ViewControllers */,
 				A4A1CE7A167804C80016CD55 /* Supporting Files */,
 			);
 			path = SampleCoreData;
@@ -158,6 +233,30 @@
 				A4A1CEA0167804C90016CD55 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A4A1CEC0167878170016CD55 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A4A1CEAE167805310016CD55 /* Content.xcdatamodeld */,
+				A43F9F9A169AF103007F63F3 /* RCDataStatus.h */,
+				A43F9F9B169AF103007F63F3 /* RCDataStatus.m */,
+				A43F9F97169AF0D8007F63F3 /* RCDataStatusEntry.h */,
+				A43F9F98169AF0D8007F63F3 /* RCDataStatusEntry.m */,
+				A43F9F94169AF0BE007F63F3 /* RCDataStatusLog.h */,
+				A43F9F95169AF0BE007F63F3 /* RCDataStatusLog.m */,
+				A43F9F91169AF082007F63F3 /* Content.h */,
+				A43F9F92169AF082007F63F3 /* Content.m */,
+				A43F9F8D169AF053007F63F3 /* RCData.h */,
+				A43F9F8E169AF053007F63F3 /* RCData.m */,
+				A4770B431688801E00C80827 /* RCDataFactory.h */,
+				A4770B441688801E00C80827 /* RCDataFactory.m */,
+				A4770B3F168879A600C80827 /* 000_RCEntryContent */,
+				A4770B3E1688797C00C80827 /* 001_RCLog */,
+				A4A1CEB416780E460016CD55 /* ContentManager.h */,
+				A4A1CEB516780E460016CD55 /* ContentManager.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +372,19 @@
 				A4A1CE80167804C80016CD55 /* main.m in Sources */,
 				A4A1CE84167804C80016CD55 /* AppDelegate.m in Sources */,
 				A4A1CE8D167804C80016CD55 /* ViewController.m in Sources */,
+				A4A1CEB0167805310016CD55 /* Content.xcdatamodeld in Sources */,
+				A4A1CEB616780E460016CD55 /* ContentManager.m in Sources */,
+				A4770B31168869B600C80827 /* RCEntry.m in Sources */,
+				A4770B37168869B700C80827 /* RCLog.m in Sources */,
+				A4770B3D168871DC00C80827 /* RCDataFormat.m in Sources */,
+				A4770B4216887A1800C80827 /* RCDataFormatJSON.m in Sources */,
+				A4770B451688801E00C80827 /* RCDataFactory.m in Sources */,
+				A4770B481688819900C80827 /* RCDataFormatFactory.m in Sources */,
+				A43F9F8F169AF053007F63F3 /* RCData.m in Sources */,
+				A43F9F93169AF082007F63F3 /* Content.m in Sources */,
+				A43F9F96169AF0BE007F63F3 /* RCDataStatusLog.m in Sources */,
+				A43F9F99169AF0D8007F63F3 /* RCDataStatusEntry.m in Sources */,
+				A43F9F9C169AF103007F63F3 /* RCDataStatus.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +557,7 @@
 				A4A1CEAA167804C90016CD55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A4A1CEAB167804C90016CD55 /* Build configuration list for PBXNativeTarget "SampleCoreDataTests" */ = {
 			isa = XCConfigurationList;
@@ -453,8 +566,23 @@
 				A4A1CEAD167804C90016CD55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A4A1CEAE167805310016CD55 /* Content.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A4A1CEAF167805310016CD55 /* Content.xcdatamodel */,
+			);
+			currentVersion = A4A1CEAF167805310016CD55 /* Content.xcdatamodel */;
+			name = Content.xcdatamodeld;
+			path = Model/Content.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A4A1CE66167804C80016CD55 /* Project object */;
 }

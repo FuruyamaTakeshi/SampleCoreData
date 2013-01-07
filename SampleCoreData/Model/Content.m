@@ -2,17 +2,23 @@
 //  Content.m
 //  SampleCoreData
 //
-//  Created by 古山 健司 on 12/12/12.
-//  Copyright (c) 2012年 TF. All rights reserved.
+//  Created by 古山 健司 on 13/01/07.
+//  Copyright (c) 2013年 TF. All rights reserved.
 //
 
 #import "Content.h"
+#import "RCData.h"
 
 
 @implementation Content
 
-@dynamic title;
-@dynamic identifier;
+@dynamic deadLine;
+@dynamic isDone;
 @dynamic link;
+@dynamic priority;
+@dynamic status;
+@dynamic title;
+@dynamic index;
+@dynamic data;
 
 @end

@@ -1,0 +1,108 @@
+\hypertarget{interface_content_manager}{\section{Content\-Manager Class Reference}
+\label{interface_content_manager}\index{Content\-Manager@{Content\-Manager}}
+}
+
+
+facade Pattern　データ管理クラス（\-Singletonモデル）  
+
+
+
+
+{\ttfamily \#import $<$Content\-Manager.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(N\-S\-Managed\-Object\-Context $\ast$) -\/ \hyperlink{interface_content_manager_ae89287752fd7a1b93bdd03c053421da9}{managed\-Object\-Context}
+\item 
+(\hyperlink{interface_content}{Content} $\ast$) -\/ \hyperlink{interface_content_manager_a15093584991c20abb7249a8b1d2804ac}{insert\-Content}
+\begin{DoxyCompactList}\small\item\em 　データ挿入メソッド \end{DoxyCompactList}\item 
+(N\-S\-Array $\ast$) -\/ \hyperlink{interface_content_manager_a04c24d37bca6cf275aa2663cef656be5}{sorted\-Content}
+\begin{DoxyCompactList}\small\item\em 　データソース取得メソッド \end{DoxyCompactList}\item 
+\hypertarget{interface_content_manager_adcc8609b96c6e73640e6899d00f457e6}{(void) -\/ \hyperlink{interface_content_manager_adcc8609b96c6e73640e6899d00f457e6}{save}}\label{interface_content_manager_adcc8609b96c6e73640e6899d00f457e6}
+
+\begin{DoxyCompactList}\small\item\em データ保存メソッド \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+(id) + \hyperlink{interface_content_manager_a243895aec0970f085fe8d47c5ea8e80a}{shared\-Instance}
+\begin{DoxyCompactList}\small\item\em getter クラスメソッド \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{interface_content_manager_ab0a059e392d3c6723672121e38f83954}{N\-S\-Managed\-Object\-Context $\ast$ {\bfseries \-\_\-managed\-Object\-Context}}\label{interface_content_manager_ab0a059e392d3c6723672121e38f83954}
+
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{interface_content_manager_a943c0867ad4cc6551b54f0da98f7412b}{N\-S\-Managed\-Object\-Context $\ast$ {\bfseries managed\-Object\-Context}}\label{interface_content_manager_a943c0867ad4cc6551b54f0da98f7412b}
+
+\item 
+\hypertarget{interface_content_manager_a298a9aaaa5f96c7a10685bc5574c7ece}{N\-S\-Array $\ast$ {\bfseries contents}}\label{interface_content_manager_a298a9aaaa5f96c7a10685bc5574c7ece}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+facade Pattern　データ管理クラス（\-Singletonモデル） 
+
+\subsection{Member Function Documentation}
+\hypertarget{interface_content_manager_a15093584991c20abb7249a8b1d2804ac}{\index{Content\-Manager@{Content\-Manager}!insert\-Content@{insert\-Content}}
+\index{insert\-Content@{insert\-Content}!ContentManager@{Content\-Manager}}
+\subsubsection[{insert\-Content}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf Content} $\ast$) insert\-Content 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}\label{interface_content_manager_a15093584991c20abb7249a8b1d2804ac}
+
+
+　データ挿入メソッド 
+
+\begin{DoxyReturn}{Returns}
+N\-S\-Managed\-Object\-Contextを返す。 
+\end{DoxyReturn}
+\hypertarget{interface_content_manager_ae89287752fd7a1b93bdd03c053421da9}{\index{Content\-Manager@{Content\-Manager}!managed\-Object\-Context@{managed\-Object\-Context}}
+\index{managed\-Object\-Context@{managed\-Object\-Context}!ContentManager@{Content\-Manager}}
+\subsubsection[{managed\-Object\-Context}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Managed\-Object\-Context$\ast$) managed\-Object\-Context 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}\label{interface_content_manager_ae89287752fd7a1b93bdd03c053421da9}
+\begin{DoxyReturn}{Returns}
+コンテクスト 
+\end{DoxyReturn}
+\hypertarget{interface_content_manager_a243895aec0970f085fe8d47c5ea8e80a}{\index{Content\-Manager@{Content\-Manager}!shared\-Instance@{shared\-Instance}}
+\index{shared\-Instance@{shared\-Instance}!ContentManager@{Content\-Manager}}
+\subsubsection[{shared\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}+ (id) shared\-Instance 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}\label{interface_content_manager_a243895aec0970f085fe8d47c5ea8e80a}
+
+
+getter クラスメソッド 
+
+\begin{DoxyReturn}{Returns}
+シングルトンインスタンス 
+\end{DoxyReturn}
+\hypertarget{interface_content_manager_a04c24d37bca6cf275aa2663cef656be5}{\index{Content\-Manager@{Content\-Manager}!sorted\-Content@{sorted\-Content}}
+\index{sorted\-Content@{sorted\-Content}!ContentManager@{Content\-Manager}}
+\subsubsection[{sorted\-Content}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\-S\-Array $\ast$) sorted\-Content 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}}\label{interface_content_manager_a04c24d37bca6cf275aa2663cef656be5}
+
+
+　データソース取得メソッド 
+
+\begin{DoxyReturn}{Returns}
+データソースを\-Arrayで返す。 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Sample\-Core\-Data/Content\-Manager.\-h\item 
+Sample\-Core\-Data/Content\-Manager.\-m\end{DoxyCompactItemize}

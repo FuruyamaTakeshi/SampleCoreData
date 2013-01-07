@@ -1,4 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Content" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="11G63b" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="11G63b" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="RCData" representedClassName="RCData" isAbstract="YES" syncable="YES">
+        <attribute name="createDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCDataStatus" inverseName="data" inverseEntity="RCDataStatus" syncable="YES"/>
+    </entity>
+    <entity name="RCDataStatus" representedClassName="RCDataStatus" syncable="YES">
+        <attribute name="deadLine" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="isDone" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="priority" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="data" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="RCData" inverseName="contents" inverseEntity="RCData" syncable="YES"/>
+    </entity>
+    <entity name="RCDataStatusEntry" representedClassName="RCDataStatusEntry" parentEntity="RCDataStatus" syncable="YES"/>
+    <entity name="RCDataStatusLog" representedClassName="RCDataStatusLog" parentEntity="RCDataStatus" syncable="YES"/>
+    <entity name="RCEntry" representedClassName="RCEntry" parentEntity="RCData" syncable="YES">
+        <attribute name="entryStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="priority" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="thumnail" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="RCLog" representedClassName="RCLog" parentEntity="RCData" syncable="YES">
+        <attribute name="appBootCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="checkInTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="checkOutTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="sessionID" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="RCDataStatus" positionX="-216" positionY="-1350" width="128" height="165"/>
+        <element name="RCData" positionX="-504" positionY="-1338" width="128" height="120"/>
+        <element name="RCEntry" positionX="-369" positionY="-1107" width="128" height="105"/>
+        <element name="RCLog" positionX="-567" positionY="-1098" width="128" height="105"/>
+        <element name="RCDataStatusLog" positionX="-207" positionY="-1071" width="128" height="45"/>
+        <element name="RCDataStatusEntry" positionX="-54" positionY="-1071" width="128" height="45"/>
+    </elements>
 </model>

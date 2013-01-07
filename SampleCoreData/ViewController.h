@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+/**
+ * @brief メイン画面クラス
+ *
+ */
 @interface ViewController : UIViewController
 
 @end
