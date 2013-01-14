@@ -7,10 +7,15 @@
 //
 
 #import "ViewController.h"
+#import "EntryListViewController.h"
 #import "ContentManager.h"
+
 #import "Content.h"
 #import "RCEntry.h"
 #import "RCDataStatus.h"
+
+#import "RCLogManager.h"
+#import "RCLogViewController.h"
 
 /**
  * @brief メイン画面ViewControllerクラスのカテゴリ（privateメソッド)
@@ -55,13 +60,25 @@
     [dataFetchButton addTarget:self action:@selector(dataFetchButtonDidPush) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:dataFetchButton];
     
-    ContentManager *mgr = [ContentManager sharedInstance];    
+    UIButton* logButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    logButton.frame = CGRectMake((self.view.frame.size.width-120)/2, 200, 120, 40);
+    [logButton setTitle:@"log" forState:UIControlStateNormal];
+    [logButton addTarget:self action:@selector(logButtonDidPush) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:logButton];
+    
+    ContentManager *mgr = [ContentManager sharedManager];    
 //    NSArray* array = [mgr getsortedEntry];
 //    for (Content *cont in array) {
 //        NSLog(@"title:%@, %@", cont.title, cont.link);
 //    }
     
     [mgr check];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[RCLogManager log] logWithViewController:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,11 +94,11 @@
     count = [[NSUserDefaults standardUserDefaults] integerForKey:@"myEntryAddCount"];
     
     RCEntry* entry;
-    entry = [[ContentManager sharedInstance] insertNewEntry];
+    entry = [[ContentManager sharedManager] insertNewEntry];
     entry.name = [NSString stringWithFormat:@"myEntry%d", count];
     entry.index = [NSNumber numberWithInt:count];
     entry.link = @"www.google.com";
-    [[ContentManager sharedInstance] save];
+    [[ContentManager sharedManager] save];
     count++;
     [[NSUserDefaults standardUserDefaults] setInteger:count forKey:@"myEntryAddCount"];
     
@@ -93,12 +110,12 @@
     int count = 0;
     count = [[NSUserDefaults standardUserDefaults] integerForKey:@"myAddCount"];
     
-    Content* item;
-    item = [[ContentManager sharedInstance] insertContent];
+    RCDataStatus* item;
+    item = [[ContentManager sharedManager] insertNewStatusAtIndex:1];
     item.title = [NSString stringWithFormat:@"myItem%d", count];
     item.index = [NSNumber numberWithInt:count];
     item.link = @"http://www.yahoo.co.jp";
-    [[ContentManager sharedInstance] save];
+    [[ContentManager sharedManager] save];
     count++;
     [[NSUserDefaults standardUserDefaults] setInteger:count forKey:@"myAddCount"];
 
@@ -107,14 +124,33 @@
 - (void)dataFetchButtonDidPush
 {
     LOG_METHOD;
-    NSArray* status = [[ContentManager sharedInstance] getsortedStatus];
-    for (RCDataStatus* item in status) {
-        NSLog(@"%@:index=%@", item.link, item.index);
+    for (int i=0; i<2; i++) {
+        NSArray* status = [[ContentManager sharedManager] getsortedStatusAtIndex:i];
+        for (RCDataStatus* item in status) {
+            NSLog(@"%d Status %@:index=%@", i, item.link, item.index);
+        }
     }
-    NSArray* entries = [[ContentManager sharedInstance] getsortedEntry];
-    for (RCEntry* item in entries) {
-        NSLog(@"%@:index=%@", item.link, item.index);
+    
+    NSArray* entries = [[ContentManager sharedManager] getsortedEntry];
+    
+    for (RCEntry* entry in entries) {
+        LOG(@"Entry %@:index=%@", entry.link, entry.index);
+        NSArray* array = [[ContentManager sharedManager] getsortedStatusesOfAnEntry:entry];
+        LOG(@"### %@", [array description]);
+        
     }
+    
+    EntryListViewController* viewControlelr = [[EntryListViewController alloc] initWithEntries:entries];
+    [self.navigationController pushViewController:viewControlelr animated:YES];
+    [viewControlelr release];
+    
+}
+
+- (void)logButtonDidPush
+{
+    RCLogViewController* viewController = [[RCLogViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
+    [viewController release];
 }
 
 @end

@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['samplecoredatatests',['SampleCoreDataTests',['../interface_sample_core_data_tests.html',1,'']]],
   ['save',['save',['../interface_content_manager.html#adcc8609b96c6e73640e6899d00f457e6',1,'ContentManager']]],
-  ['sharedinstance',['sharedInstance',['../interface_content_manager.html#a243895aec0970f085fe8d47c5ea8e80a',1,'ContentManager']]],
-  ['sortedcontent',['sortedContent',['../interface_content_manager.html#a04c24d37bca6cf275aa2663cef656be5',1,'ContentManager']]]
+  ['sharedmanager',['sharedManager',['../interface_content_manager.html#ac02b25064a04f848baa4f68067149b56',1,'ContentManager']]]
 ];

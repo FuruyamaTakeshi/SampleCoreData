@@ -2,8 +2,8 @@
 //  RCLog.h
 //  SampleCoreData
 //
-//  Created by 古山 健司 on 12/12/24.
-//  Copyright (c) 2012年 TF. All rights reserved.
+//  Created by 古山 健司 on 13/01/14.
+//  Copyright (c) 2013年 TF. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -13,9 +13,10 @@
 
 @interface RCLog : RCData
 
-@property (nonatomic, retain) NSString * sessionID;
+@property (nonatomic, retain) NSNumber * appBootCount;
 @property (nonatomic, retain) NSDate * checkInTime;
 @property (nonatomic, retain) NSDate * checkOutTime;
-@property (nonatomic, retain) NSNumber * appBootCount;
+@property (nonatomic, retain) NSNumber * isSent;
+@property (nonatomic, retain) NSString * sessionID;
 
 @end

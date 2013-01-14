@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 @class Content;
 @class RCEntry;
+@class RCDataStatus;
 /**
  * @brief facade Pattern　データ管理クラス（Singletonモデル）
  *
@@ -24,8 +25,7 @@
  * @return  シングルトンインスタンス
  *
  */
-
-+ (id)sharedInstance;
++ (id)sharedManager;
 /**
  * @brief
  * @return コンテクスト
@@ -33,10 +33,19 @@
  */
 - (NSManagedObjectContext*)managedObjectContext;
 /**
+ * @brief Entry新規追加メソッド
+ *
+ */
+- (RCEntry*)insertNewEntry;
+
+/**
  * @brief　データ挿入メソッド
  * @return NSManagedObjectContextを返す。
  */
-- (Content*)insertContent;
+- (RCDataStatus*)insertNewStatusAtIndex:(int)index;
+
+- (RCDataStatus*)insertNewStatusToEntry:(id)anEntry;
+
 /**
  * @brief　データソース取得メソッド
  * @return データソースをArrayで返す。
@@ -56,15 +65,22 @@
  * @brief データ削除メソッド
  *
  */
-/**
- * @brief Entry新規追加メソッド
- *
- */
-- (RCEntry*)insertNewEntry;
+
 /**
  * @brief debug用メソッド
  *
  */
 - (void)check;
-
+/**
+ * @brief ステータス取得メソッド
+ * @param [in] 対象Entryのindex
+ * @return ステータス一覧を格納したArrayを返す。
+ */
+- (NSArray*)getsortedStatusAtIndex:(int)index;
+/**
+ * @brief ステータス取得メソッド
+ * @param [in] 対象Entryインスタンス
+ * @return ステータス一覧を格納したArrayを返す。
+ */
+- (NSArray*)getsortedStatusesOfAnEntry:(id)entry;
 @end

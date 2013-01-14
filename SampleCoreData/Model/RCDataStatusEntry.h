@@ -10,7 +10,11 @@
 #import <CoreData/CoreData.h>
 #import "RCDataStatus.h"
 
-
+/**
+ * @brief Modelクラス
+ * @auther TF
+ *
+ */
 @interface RCDataStatusEntry : RCDataStatus
 
 

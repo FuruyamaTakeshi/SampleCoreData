@@ -29,14 +29,15 @@
         <attribute name="appBootCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="checkInTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="checkOutTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="isSent" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="sessionID" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="RCDataStatus" positionX="-216" positionY="-1350" width="128" height="165"/>
         <element name="RCData" positionX="-504" positionY="-1338" width="128" height="120"/>
-        <element name="RCEntry" positionX="-369" positionY="-1107" width="128" height="105"/>
-        <element name="RCLog" positionX="-567" positionY="-1098" width="128" height="105"/>
-        <element name="RCDataStatusLog" positionX="-207" positionY="-1071" width="128" height="45"/>
+        <element name="RCDataStatus" positionX="-216" positionY="-1350" width="128" height="165"/>
         <element name="RCDataStatusEntry" positionX="-54" positionY="-1071" width="128" height="45"/>
+        <element name="RCDataStatusLog" positionX="-207" positionY="-1071" width="128" height="45"/>
+        <element name="RCEntry" positionX="-369" positionY="-1107" width="128" height="105"/>
+        <element name="RCLog" positionX="-567" positionY="-1098" width="128" height="120"/>
     </elements>
 </model>

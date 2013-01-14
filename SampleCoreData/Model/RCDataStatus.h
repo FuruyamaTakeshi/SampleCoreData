@@ -10,7 +10,11 @@
 #import <CoreData/CoreData.h>
 
 @class RCData;
-
+/**
+ * @brief Modelクラス
+ * @auther TF
+ *
+ */
 @interface RCDataStatus : NSManagedObject
 
 @property (nonatomic, retain) NSDate * deadLine;

@@ -9,18 +9,21 @@
 #import <CoreData/CoreData.h>
 
 #import "ContentManager.h"
+#import "RCUtility.h"
 #import "Content.h"
 #import "RCEntry.h"
 #import "RCData.h"
 #import "RCDataFormat.h"
 #import "RCDataFormatFactory.h"
 #import "RCDataFormatJSON.h"
+#import "RCDataStatus.h"
+#import "RCDataStatusEntry.h"
 
 @implementation ContentManager
 @synthesize contents = _contents;
-static id _instance = nil;
 
-+ (id)sharedInstance
+static id _instance = nil;
++ (id)sharedManager
 {
     LOG_METHOD;
     @synchronized(self)
@@ -101,58 +104,145 @@ static id _instance = nil;
     
     return _managedObjectContext;
 }
+- (RCEntry*)insertNewEntry
+{
+    NSManagedObjectContext *context;
+    context = self.managedObjectContext;
+    
+    RCEntry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"RCEntry" inManagedObjectContext:context];
+    entry.identifier = [RCUtility uuid];
+    return entry;
+}
 
-- (Content*)insertContent
+- (RCDataStatus*)insertNewStatusAtIndex:(int)index
+{
+    LOG_METHOD;
+    
+    NSManagedObjectContext* context;
+    context = self.managedObjectContext;
+    
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"RCEntry" inManagedObjectContext:context]];
+    
+    NSError* error = nil;
+    NSArray* entries = [context executeFetchRequest:request error:&error];
+    [request release];
+    
+    RCDataStatus* status = [NSEntityDescription insertNewObjectForEntityForName:@"RCDataStatusEntry" inManagedObjectContext:context];
+    
+    RCData* entry = [entries objectAtIndex:index];
+    [entry addContentsObject:status];
+    
+    return status;
+}
+- (RCDataStatus*)insertNewStatusToEntry:(id)anEntry
 {
     LOG_METHOD;
     NSManagedObjectContext* context;
     context = self.managedObjectContext;
-    Content *content = [NSEntityDescription insertNewObjectForEntityForName:@"RCDataStatus" inManagedObjectContext:context];
     
-    CFUUIDRef uuid;
-    NSString *identifier;
-    uuid = CFUUIDCreate(NULL);
-    identifier = (NSString*)CFUUIDCreateString(NULL, uuid);
-    CFRelease(uuid);
-    [identifier autorelease];
-    //content.identifier = identifier;
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"RCEntry" inManagedObjectContext:context]];
     
-    return content;
+    NSError* error = nil;
+    NSArray* entries = [context executeFetchRequest:request error:&error];
+    NSUInteger index = [entries indexOfObject:anEntry];
+    RCData* entry = [entries objectAtIndex:index];
+    RCDataStatus* status = [NSEntityDescription insertNewObjectForEntityForName:@"RCDataStatusEntry" inManagedObjectContext:context];
+    [entry addContentsObject:status];
+    
+    return status;
+    
+}
+- (NSArray*)getsortedStatusAtIndex:(int)index
+{
+    LOG_METHOD;
+//    NSManagedObjectContext* context;
+//    context = self.managedObjectContext;
+//    
+//    NSFetchRequest* request;
+//    
+//    request = [[NSFetchRequest alloc] init];
+//    [request setEntity:[NSEntityDescription entityForName:@"RCData" inManagedObjectContext:context]];
+//    
+//    NSError* error = nil;
+//    NSArray* entries = [context executeFetchRequest:request error:&error];
+//    [request release];
+    
+    NSArray* entries = [self getEntitiesWithName:@"RCData"];
+    
+    RCData* ent = [entries objectAtIndex:index];
+    NSMutableArray *sortedStatuses = [[NSMutableArray alloc] initWithArray:[ent.contents allObjects]];
+	
+    return sortedStatuses;
+}
+
+- (NSArray*)getsortedStatusesOfAnEntry:(id)entry
+{
+    LOG_METHOD;
+    NSArray* entries = [self getEntitiesWithName:@"RCData"];
+    
+    if ([entries containsObject:entry]) {
+        RCData* ent = [entries objectAtIndex:[entries indexOfObject:entry]];
+        NSMutableArray *sortedStatuses = [[NSMutableArray alloc] initWithArray:[ent.contents allObjects]];
+        return sortedStatuses;
+    }
+    else {
+        return nil;
+    }
+}
+
+- (NSArray*)getEntitiesWithName:(NSString*)aName
+{
+    LOG_METHOD;
+    NSManagedObjectContext* context;
+    context = self.managedObjectContext;
+    
+    NSFetchRequest* request;
+    request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:aName inManagedObjectContext:context]];
+    
+    NSError* error = nil;
+    NSArray* entries = [context executeFetchRequest:request error:&error];
+    [request release];
+
+    return entries;
 }
 
 - (NSArray*)getsortedStatus
 {
     LOG_METHOD;
-//    NSManagedObjectContext *context;
-//    context = self.managedObjectContext;
-//    
-//    NSFetchRequest *request;
-//    NSEntityDescription* entity;
-//    NSSortDescriptor* sortDescriptor;
-//    
-//    request = [[NSFetchRequest alloc] init];
-//    entity = [NSEntityDescription entityForName:@"RCDataStatus" inManagedObjectContext:context];
-//    [request setEntity:entity];
-//    
-//    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
-//    [sortDescriptor autorelease];
-//    [request setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
-//    
-//    NSArray *result;
-//    NSError *error;
-//    
-//    result = [context executeFetchRequest:request error:&error];
-//    if (!result) {
-//        NSLog(@"Error   ");
-//        return nil;
-//    }
-//    
-//    return result;
-    return [self getsortedItem:@"RCDataStatus"];
+    NSManagedObjectContext *context;
+    context = self.managedObjectContext;
+    
+    NSFetchRequest *request;
+    NSEntityDescription* entity;
+    NSSortDescriptor* sortDescriptor;
+    
+    request = [[NSFetchRequest alloc] init];
+    entity = [NSEntityDescription entityForName:@"RCDataStatus" inManagedObjectContext:context];
+    [request setEntity:entity];
+    
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"index" ascending:YES];
+    [sortDescriptor autorelease];
+    [request setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSArray *result;
+    NSError *error;
+    
+    result = [context executeFetchRequest:request error:&error];
+    if (!result) {
+        NSLog(@"Error   ");
+        return nil;
+    }
+    
+    return result;
+//    return [self getsortedItem:@"RCDataStatusEntry"];
 }
 - (NSArray*)getsortedEntry
 {
-    return [self getsortedItem:@"RCDataStatusEntry"];
+    LOG_METHOD;
+    return [self getsortedItem:@"RCEntry"];
 }
 
 - (NSArray*)getsortedItem:(NSString*)name
@@ -169,7 +259,7 @@ static id _instance = nil;
     entity = [NSEntityDescription entityForName:name inManagedObjectContext:context];
     [request setEntity:entity];
     
-    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     [sortDescriptor autorelease];
     [request setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
     
@@ -178,30 +268,10 @@ static id _instance = nil;
     
     result = [context executeFetchRequest:request error:&error];
     if (!result) {
-        NSLog(@"Error   ");
+        NSLog(@"Error");
         return nil;
     }
-    
     return result;
-}
-- (RCEntry*)insertNewEntry
-{
-    NSManagedObjectContext *context;
-    context = self.managedObjectContext;
-    
-    RCEntry *entry;
-    entry = [NSEntityDescription insertNewObjectForEntityForName:@"RCEntry" inManagedObjectContext:context];
-    
-    CFUUIDRef uuid;
-    NSString *identifier;
-    uuid = CFUUIDCreate(NULL);
-    identifier = (NSString*)CFUUIDCreateString(NULL, uuid);
-    CFRelease(uuid);
-    [identifier autorelease];
-    entry.identifier = identifier;
-    
-    return entry;
-    
 }
 
 - (void)save
@@ -215,6 +285,7 @@ static id _instance = nil;
 
 - (void)check
 {
+    LOG_METHOD;
     RCDataFormat *jsonFormat = [RCDataFormatFactory factoryWithName:@"JSON"];
     NSDictionary* dicTaro = [NSDictionary dictionaryWithObjectsAndKeys:@"Taro",@"name", @"24", @"age", @"Tokyo", @"livingarea", @"teacher", @"shokugyo", nil];
     NSDictionary* dicJiro = [NSDictionary dictionaryWithObjectsAndKeys:@"Jiro",@"name", @"22", @"age", @"Chiba", @"livingarea", @"student", @"shokugyo", nil];

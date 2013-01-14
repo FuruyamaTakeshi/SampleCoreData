@@ -2,20 +2,20 @@
 //  RCData.m
 //  SampleCoreData
 //
-//  Created by 古山 健司 on 13/01/07.
+//  Created by 古山 健司 on 13/01/10.
 //  Copyright (c) 2013年 TF. All rights reserved.
 //
 
 #import "RCData.h"
-#import "Content.h"
+#import "RCDataStatus.h"
 
 
 @implementation RCData
 
 @dynamic createDate;
 @dynamic identifier;
-@dynamic name;
 @dynamic index;
+@dynamic name;
 @dynamic contents;
 
 @end

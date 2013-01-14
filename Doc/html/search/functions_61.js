@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['addbuttondidpush',['addButtonDidPush',['../interface_view_controller_07_08.html#aa039751e3b3d7a8fe9f13ec081b8968c',1,'ViewController()']]]
+  ['addcontentbuttondidpush',['addContentButtonDidPush',['../interface_view_controller_07_08.html#a04aed1e85d60a76bdebc52b80552b5ca',1,'ViewController()']]]
 ];
