@@ -221,9 +221,9 @@
 		A4A1CE79167804C80016CD55 /* SampleCoreData */ = {
 			isa = PBXGroup;
 			children = (
-				A43F9FEA16A2B462007F63F3 /* Utility */,
 				A4A1CE82167804C80016CD55 /* AppDelegate.h */,
 				A4A1CE83167804C80016CD55 /* AppDelegate.m */,
+				A43F9FEA16A2B462007F63F3 /* Utility */,
 				A4A1CEC0167878170016CD55 /* Models */,
 				A40FEB8716793EA9004A177C /* ViewControllers */,
 				A4A1CE7A167804C80016CD55 /* Supporting Files */,

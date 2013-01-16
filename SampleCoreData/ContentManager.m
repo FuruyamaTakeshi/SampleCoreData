@@ -104,8 +104,10 @@ static id _instance = nil;
     
     return _managedObjectContext;
 }
+
 - (RCEntry*)insertNewEntry
 {
+    LOG_METHOD;
     NSManagedObjectContext *context;
     context = self.managedObjectContext;
     
@@ -136,6 +138,7 @@ static id _instance = nil;
     
     return status;
 }
+
 - (RCDataStatus*)insertNewStatusToEntry:(id)anEntry
 {
     LOG_METHOD;
@@ -158,23 +161,13 @@ static id _instance = nil;
 }
 - (NSArray*)getsortedStatusAtIndex:(int)index
 {
-    LOG_METHOD;
-//    NSManagedObjectContext* context;
-//    context = self.managedObjectContext;
-//    
-//    NSFetchRequest* request;
-//    
-//    request = [[NSFetchRequest alloc] init];
-//    [request setEntity:[NSEntityDescription entityForName:@"RCData" inManagedObjectContext:context]];
-//    
-//    NSError* error = nil;
-//    NSArray* entries = [context executeFetchRequest:request error:&error];
-//    [request release];
-    
+    LOG_METHOD;    
     NSArray* entries = [self getEntitiesWithName:@"RCData"];
-    
-    RCData* ent = [entries objectAtIndex:index];
-    NSMutableArray *sortedStatuses = [[NSMutableArray alloc] initWithArray:[ent.contents allObjects]];
+    NSMutableArray *sortedStatuses = nil;
+    if ([entries count] > 0) {
+        RCData* ent = [entries objectAtIndex:index];
+         sortedStatuses = [[NSMutableArray alloc] initWithArray:[ent.contents allObjects]];
+    }
 	
     return sortedStatuses;
 }
@@ -216,43 +209,13 @@ static id _instance = nil;
     return entries;
 }
 
-- (NSArray*)getsortedStatus
-{
-    LOG_METHOD;
-    NSManagedObjectContext *context;
-    context = self.managedObjectContext;
-    
-    NSFetchRequest *request;
-    NSEntityDescription* entity;
-    NSSortDescriptor* sortDescriptor;
-    
-    request = [[NSFetchRequest alloc] init];
-    entity = [NSEntityDescription entityForName:@"RCDataStatus" inManagedObjectContext:context];
-    [request setEntity:entity];
-    
-    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"index" ascending:YES];
-    [sortDescriptor autorelease];
-    [request setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
-    
-    NSArray *result;
-    NSError *error;
-    
-    result = [context executeFetchRequest:request error:&error];
-    if (!result) {
-        NSLog(@"Error   ");
-        return nil;
-    }
-    
-    return result;
-//    return [self getsortedItem:@"RCDataStatusEntry"];
-}
 - (NSArray*)getsortedEntry
 {
     LOG_METHOD;
-    return [self getsortedItem:@"RCEntry"];
+    return [self getsortedItem:@"RCEntry" withKey:@"index"];
 }
 
-- (NSArray*)getsortedItem:(NSString*)name
+- (NSArray*)getsortedItem:(NSString*)name withKey:(NSString*)key
 {
     LOG_METHOD;
     NSManagedObjectContext *context;
@@ -266,7 +229,7 @@ static id _instance = nil;
     entity = [NSEntityDescription entityForName:name inManagedObjectContext:context];
     [request setEntity:entity];
     
-    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"index" ascending:YES];
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:key ascending:YES];
     [sortDescriptor autorelease];
     [request setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
     
@@ -275,7 +238,7 @@ static id _instance = nil;
     
     result = [context executeFetchRequest:request error:&error];
     if (!result) {
-        NSLog(@"Error");
+        NSLog(@"Error %@",error);
         return nil;
     }
     return result;
@@ -288,6 +251,12 @@ static id _instance = nil;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Error, %@", error);
     }
+}
+
+-(void)update
+{
+    LOG_METHOD;
+    [self save];
 }
 
 - (void)check

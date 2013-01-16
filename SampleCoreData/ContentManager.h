@@ -51,16 +51,15 @@
  * @return データソースをArrayで返す。
  */
 - (NSArray*)getsortedEntry;
-/**
- * @brief　データソース取得メソッド
- * @return データソースをArrayで返す。
- */
-- (NSArray*)getsortedStatus;
+
 /**
  * @brief データ保存メソッド
  *
  */
 - (void)save;
+
+
+- (void)update;
 /**
  * @brief データ削除メソッド
  *
