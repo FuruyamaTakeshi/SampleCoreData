@@ -111,6 +111,7 @@ static id _instance = nil;
     
     RCEntry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"RCEntry" inManagedObjectContext:context];
     entry.identifier = [RCUtility uuid];
+    entry.index = [NSNumber numberWithInt:[[self getsortedEntry] count]-1];
     return entry;
 }
 
@@ -265,7 +266,7 @@ static id _instance = nil;
     entity = [NSEntityDescription entityForName:name inManagedObjectContext:context];
     [request setEntity:entity];
     
-    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"index" ascending:YES];
     [sortDescriptor autorelease];
     [request setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
     

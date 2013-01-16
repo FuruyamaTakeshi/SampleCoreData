@@ -111,7 +111,7 @@
     count = [[NSUserDefaults standardUserDefaults] integerForKey:@"myAddCount"];
     
     RCDataStatus* item;
-    item = [[ContentManager sharedManager] insertNewStatusAtIndex:1];
+    item = [[ContentManager sharedManager] insertNewStatusAtIndex:0];
     item.title = [NSString stringWithFormat:@"myItem%d", count];
     item.index = [NSNumber numberWithInt:count];
     item.link = @"http://www.yahoo.co.jp";

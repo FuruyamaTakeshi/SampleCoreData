@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleCoreData/ContentManager.m"
-         timestampString = "380038044.226043"
+         timestampString = "380039037.176003"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "257"
-         endingLineNumber = "257"
+         startingLineNumber = "258"
+         endingLineNumber = "258"
          landmarkName = "-getsortedItem:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleCoreData/ContentManager.m"
-         timestampString = "380038044.226043"
+         timestampString = "380039037.176003"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "275"
-         endingLineNumber = "275"
+         startingLineNumber = "276"
+         endingLineNumber = "276"
          landmarkName = "-getsortedItem:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleCoreData/ContentManager.m"
-         timestampString = "380038044.226043"
+         timestampString = "380039037.176003"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "266"
-         endingLineNumber = "266"
+         startingLineNumber = "267"
+         endingLineNumber = "267"
          landmarkName = "-getsortedItem:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleCoreData/ContentManager.m"
-         timestampString = "379762837.481655"
+         timestampString = "380039037.176003"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "121"
-         endingLineNumber = "121"
+         startingLineNumber = "122"
+         endingLineNumber = "122"
          landmarkName = "-insertNewStatusAtIndex:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleCoreData/ContentManager.m"
-         timestampString = "380038044.226043"
+         timestampString = "380039037.176003"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "204"
-         endingLineNumber = "204"
+         startingLineNumber = "205"
+         endingLineNumber = "205"
          landmarkName = "-getEntitiesWithName:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -151,11 +151,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleCoreData/ContentManager.m"
-         timestampString = "380037225.986281"
+         timestampString = "380039037.176003"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "152"
-         endingLineNumber = "152"
+         startingLineNumber = "153"
+         endingLineNumber = "153"
          landmarkName = "-insertNewStatusToEntry:"
          landmarkType = "5">
       </FileBreakpoint>
