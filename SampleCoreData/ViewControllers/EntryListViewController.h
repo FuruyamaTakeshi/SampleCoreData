@@ -10,7 +10,7 @@
 
 @interface EntryListViewController : UITableViewController
 
-@property (nonatomic, readonly) NSArray* dataSource;
+
 /**
  * @brief 簡易コンストラクタ
  * @param [in] entry

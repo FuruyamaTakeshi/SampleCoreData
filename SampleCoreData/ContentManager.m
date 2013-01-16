@@ -149,6 +149,7 @@ static id _instance = nil;
     NSUInteger index = [entries indexOfObject:anEntry];
     RCData* entry = [entries objectAtIndex:index];
     RCDataStatus* status = [NSEntityDescription insertNewObjectForEntityForName:@"RCDataStatusEntry" inManagedObjectContext:context];
+    status.index = [NSNumber numberWithInt:[entry.contents count]];
     [entry addContentsObject:status];
     
     return status;
@@ -185,6 +186,11 @@ static id _instance = nil;
     if ([entries containsObject:entry]) {
         RCData* ent = [entries objectAtIndex:[entries indexOfObject:entry]];
         NSMutableArray *sortedStatuses = [[NSMutableArray alloc] initWithArray:[ent.contents allObjects]];
+        
+        NSSortDescriptor* descriptor = [[NSSortDescriptor alloc] initWithKey:@"index" ascending:YES];
+        NSArray* sortDescriptors = [NSArray arrayWithObject:descriptor];
+        [sortedStatuses sortUsingDescriptors:sortDescriptors];
+        [descriptor release];
         return sortedStatuses;
     }
     else {

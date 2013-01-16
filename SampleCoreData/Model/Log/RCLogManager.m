@@ -94,6 +94,8 @@ static id _instance = nil;
     
     //転送処理の開始
     
+    // NetworkReachablity check
+    
     //成功時送信済に更新する
     NSArray* array = [self getLogs];
     for (RCLog* log in array) {
@@ -129,8 +131,8 @@ static id _instance = nil;
     request = [[NSFetchRequest alloc] init];
     entity = [NSEntityDescription entityForName:@"RCLog" inManagedObjectContext:context];
     [request setEntity:entity];
-//    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"RCLog.isSent == %@", [NSNumber numberWithBool:NO]];
-//    [request setPredicate:predicate];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"isSent == %@", [NSNumber numberWithBool:NO]];
+    [request setPredicate:predicate];
     sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"checkInTime" ascending:YES];
     [sortDescriptor autorelease];
     [request setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
@@ -154,6 +156,26 @@ static id _instance = nil;
     NSError* error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Error, save");
+    }
+}
+
+- (void)hogeAtIndex:(int)index
+{
+    NSManagedObjectContext* context;
+    context = self.managedObjectContext;
+    NSFetchRequest* request = [[NSFetchRequest alloc] initWithEntityName:@"RCLog"];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"isSent == %@", [NSNumber numberWithBool:NO]];
+    [request setPredicate:predicate];
+
+    NSArray* result;
+    NSError* error;
+    
+    result = [context executeFetchRequest:request error:&error];
+    if (!result) {
+        NSLog(@"Fetch error");
+    }
+    for(RCLog* log in result) {
+        LOG(@"%@", log.index);
     }
 }
 @end

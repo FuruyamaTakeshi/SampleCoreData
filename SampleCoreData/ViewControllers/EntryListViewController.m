@@ -14,7 +14,7 @@
 #import "RCLogManager.h"
 
 @interface EntryListViewController ()
-
+@property (nonatomic, retain) NSMutableArray* dataSource;
 @end
 
 @implementation EntryListViewController
@@ -40,9 +40,13 @@
     LOG_METHOD;
     self = [super init];
     if (self) {
+#if 0
         [entries retain];
         [_dataSource release];
         _dataSource = entries;
+#else
+        _dataSource = [[NSMutableArray arrayWithArray:entries] retain];
+#endif
     }
     return self;
 }
@@ -98,7 +102,7 @@
     }
     RCEntry* entry = [_dataSource objectAtIndex:indexPath.row];
     cell.textLabel.text = entry.name;
-    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@:%@", entry.index, entry.name];
     return cell;
 }
 
@@ -163,6 +167,7 @@
     entry.name = [NSString stringWithFormat:@"entry-%@", entry.identifier];
     entry.createDate = [NSDate date];
     [[ContentManager sharedManager] save];
+    [_dataSource insertObject:entry atIndex:[_dataSource count]];
     [self.tableView reloadData];
 }
 @end

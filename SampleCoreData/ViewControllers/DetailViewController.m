@@ -96,7 +96,8 @@
     }
     
     RCDataStatusEntry* status = [_dataSource objectAtIndex:indexPath.row];
-    cell.textLabel.text = status.title;
+    //cell.textLabel.text = status.title;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@:%@", status.index, status.title];
     
     return cell;
 }

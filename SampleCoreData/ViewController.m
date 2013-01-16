@@ -137,7 +137,6 @@
         LOG(@"Entry %@:index=%@", entry.link, entry.index);
         NSArray* array = [[ContentManager sharedManager] getsortedStatusesOfAnEntry:entry];
         LOG(@"### %@", [array description]);
-        
     }
     
     EntryListViewController* viewControlelr = [[EntryListViewController alloc] initWithEntries:entries];
@@ -148,6 +147,7 @@
 
 - (void)logButtonDidPush
 {
+    LOG_METHOD;
     RCLogViewController* viewController = [[RCLogViewController alloc] init];
     [self.navigationController pushViewController:viewController animated:YES];
     [viewController release];
